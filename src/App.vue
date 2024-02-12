@@ -1,28 +1,50 @@
 <script setup>
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
 
-const red = ref(0);
-const green = ref(0);
-const blue = ref(0);
+// const red = ref(0);
+// const green = ref(0);
+// const blue = ref(0);
+
+// const color = ref({
+// 	red: 0,
+// 	green: 0,
+// 	blue: 0,
+// });
+
+const color = reactive({
+	red: 0,
+	green: 0,
+	blue: 0,
+});
 </script>
 
 <template>
-	<main :style="{ backgroundColor: `rgb(${red}, ${green}, ${blue})` }">
+	<main
+		:style="{
+			backgroundColor: `rgb(${color.red}, ${color.green}, ${color.blue})`,
+		}"
+	>
 		<div>
-			<input type="number" name="red" id="" placeholder="red" v-model="red" />
 			<input
 				type="number"
-				name="gree"
+				name="red"
+				id=""
+				placeholder="red"
+				v-model="color.red"
+			/>
+			<input
+				type="number"
+				name="green"
 				id=""
 				placeholder="green"
-				v-model="green"
+				v-model="color.green"
 			/>
 			<input
 				type="number"
 				name="blue"
 				id=""
 				placeholder="blue"
-				v-model="blue"
+				v-model="color.blue"
 			/>
 		</div>
 	</main>
