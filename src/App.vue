@@ -16,6 +16,30 @@ const color = reactive({
 	green: 0,
 	blue: 0,
 });
+
+const generateColor = () => {
+	// for ref
+	// color.value.red = 120;
+	// color.value.green = 11;
+	// color.value.blue = 30;
+
+	// for reactive
+	color.red = 120;
+	color.green = 11;
+	color.blue = 30;
+};
+
+const refValue = ref('Hello');
+const reactiveValue = reactive({
+	greeting: 'World',
+});
+
+console.log(refValue.value, reactiveValue.greeting);
+
+refValue.value = true;
+reactiveValue.greeting = false;
+
+console.log(refValue.value, reactiveValue.greeting);
 </script>
 
 <template>
@@ -46,6 +70,7 @@ const color = reactive({
 				placeholder="blue"
 				v-model="color.blue"
 			/>
+			<button @click="generateColor">Generate</button>
 		</div>
 	</main>
 </template>
