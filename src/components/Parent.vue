@@ -5,6 +5,7 @@ import Child from './Child.vue';
 <template>
 	<div>
 		<h1>Parent</h1>
+		{{ numbers }}
 		<div class="line"></div>
 		<Child />
 	</div>

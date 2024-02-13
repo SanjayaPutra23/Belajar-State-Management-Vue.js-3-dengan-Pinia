@@ -1,18 +1,13 @@
 <script setup>
 import GrandChild from './GrandChild.vue';
-
-import { inject } from 'vue';
-const numbers = inject('numbers');
-
-const addNumbers = () => {
-	numbers.value = [...numbers.value, numbers.value.length + 1];
-};
+import useNumbers from '../composables/useNumbers';
+const { numbers, addNumber } = useNumbers();
 </script>
 
 <template>
 	<div>
 		<h1>Child</h1>
-		<button @click="addNumbers">Add Number</button>
+		<button @click="addNumber">Add Number</button>
 		<div class="line"></div>
 		{{ numbers }}
 		<GrandChild />
